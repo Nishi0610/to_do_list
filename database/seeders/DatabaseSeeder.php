@@ -14,8 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            TodoListSeeder::class
+        ]); //php artisan db:seed を実行するとrun内が処理される
         // \App\Models\User::factory(10)->create();
-
+        
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

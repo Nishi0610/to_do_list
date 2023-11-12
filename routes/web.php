@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoListController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Route::get('/', [TodolistController::class, 'index']); 
+Route::get('/', [TaskController::class,'index']); 
+Route::post('/create', [TaskController::class,'create']); 
+Route::get('/tasks/{id}/edit', [TaskController::class,'edit']);
+Route::delete('/delete/{id}', [TaskController::class,'delete']); //$id=>
+route::get('/tasks', [TaskController::class,'store']);
+route::post('/tasks', [TaskController::class,'store']);
+route::put('/tasks/{id}', [TaskController::class,'update']);
